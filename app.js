@@ -1,3 +1,5 @@
+const main = document.querySelector('main');
+
 const humanExpressions = [
 
     { img: './img/drink.jpg', text: 'Estou com sede' },
@@ -14,6 +16,7 @@ const humanExpressions = [
     { img: './img/grandma.jpg', text: 'Quero ver a vovó' },
 ];
 
+// [mostrar as imagens na tela]
 const createExpressionBox = ({ img, text }) => {
 
     const div = document.createElement('div');
@@ -21,7 +24,7 @@ const createExpressionBox = ({ img, text }) => {
     div.classList.add('expression-box');
     div.innerHTML = `<img src="${img}" alt="${text}"><p class="info">${text}</p>`
 
-    console.log(div)
+    main.appendChild(div)
 }
 
 humanExpressions.forEach(createExpressionBox);
