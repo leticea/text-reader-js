@@ -1,4 +1,5 @@
 const main = document.querySelector('main');
+const buttonInsertText = document.querySelector('.btn-toggle');
 
 const humanExpressions = [
 
@@ -28,3 +29,8 @@ const createExpressionBox = ({ img, text }) => {
 }
 
 humanExpressions.forEach(createExpressionBox);
+
+buttonInsertText.addEventListener('click', () => {
+
+    
+});
