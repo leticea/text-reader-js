@@ -14,3 +14,10 @@ const humanExpressions = [
     { img: './img/grandma.jpg', text: 'Quero ver a vovó' },
 ];
 
+const createExpressionBox = humanExpression => {
+
+    const div = document.createElement('div');
+    console.log(div)
+}
+
+humanExpressions.forEach(createExpressionBox);
