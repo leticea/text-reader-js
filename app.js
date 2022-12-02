@@ -14,9 +14,13 @@ const humanExpressions = [
     { img: './img/grandma.jpg', text: 'Quero ver a vovó' },
 ];
 
-const createExpressionBox = humanExpression => {
+const createExpressionBox = ({ img, text }) => {
 
     const div = document.createElement('div');
+
+    div.classList.add('expression-box');
+    div.innerHTML = `<img src="${img}" alt="${text}"><p class="info">${text}</p>`
+
     console.log(div)
 }
 
