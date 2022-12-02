@@ -25,9 +25,9 @@ const createExpressionBox = ({ img, text }) => {
     const div = document.createElement('div');
 
     div.classList.add('expression-box');
-    div.innerHTML = `<img src="${img}" alt="${text}"><p class="info">${text}</p>`
+    div.innerHTML = `<img src="${img}" alt="${text}"><p class="info">${text}</p>`;
 
-    main.appendChild(div)
+    main.appendChild(div);
 }
 
 humanExpressions.forEach(createExpressionBox);
@@ -37,8 +37,19 @@ let voices = [];
 // [obter as vozes]
 speechSynthesis.addEventListener('voiceschanged', () => {
 
-    voices = speechSynthesis.getVoices()
-    console.log(voices)
+    voices = speechSynthesis.getVoices();
+
+    voices.forEach(({ name, lang }) => {
+
+        const option = document.createElement('option');
+
+        option.value = name;
+        option.textContent = `${lang} | ${name}`;
+        
+        console.log(option)
+
+    });
+
 });
 
 // [mostrar e remover a caixa de texto]
