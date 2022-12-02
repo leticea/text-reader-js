@@ -32,6 +32,16 @@ const createExpressionBox = ({ img, text }) => {
 
 humanExpressions.forEach(createExpressionBox);
 
+let voices = [];
+
+// [obter as vozes]
+speechSynthesis.addEventListener('voiceschanged', () => {
+
+    voices = speechSynthesis.getVoices()
+    console.log(voices)
+});
+
+// [mostrar e remover a caixa de texto]
 buttonInsertText.addEventListener('click', () => {
 
     divTextBox.classList.add('show');
