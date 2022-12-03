@@ -28,6 +28,12 @@ const createExpressionBox = ({ img, text }) => {
     div.classList.add('expression-box');
     div.innerHTML = `<img src="${img}" alt="${text}"><p class="info">${text}</p>`;
 
+    div.addEventListener('click', () => {
+
+        setTextMessage(text);
+        speakText();
+    });
+
     main.appendChild(div);
 }
 
