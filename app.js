@@ -74,24 +74,25 @@ let voices = [];
 speechSynthesis.addEventListener('voiceschanged', () => {
 
     voices = speechSynthesis.getVoices();
-    
+
     const googleVoice = voices.find(voice => voice.name === 'Google português do Brasil');
     const microsoftVoice = voices.find(voice => voice.name === 'Microsoft Maria Desktop - Portuguese(Brazil)');
-
-    if (googleVoice) {
-
-        utterance.voice = googleVoice;
-
-    } else if (microsoftVoice) {
-        
-        utterance.voice = microsoftVoice;
-    }
 
     voices.forEach(({ name, lang }) => {
 
         const option = document.createElement('option');
 
         option.value = name;
+
+        if (googleVoice) {
+
+            utterance.voice = googleVoice;
+    
+        } else if (microsoftVoice) {
+            
+            utterance.voice = microsoftVoice;
+        }
+
         option.textContent = `${lang} | ${name}`;
         selectElement.appendChild(option);
     });
