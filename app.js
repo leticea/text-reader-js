@@ -74,8 +74,18 @@ let voices = [];
 speechSynthesis.addEventListener('voiceschanged', () => {
 
     voices = speechSynthesis.getVoices();
-    const googleVoice = voices.find(voice => voice.name === 'Google português do Brasil');
     
+    const googleVoice = voices.find(voice => voice.name === 'Google português do Brasil');
+    const microsoftVoice = voices.find(voice => voice.name === 'Microsoft Maria Desktop - Portuguese(Brazil)');
+
+    if (googleVoice) {
+
+        utterance.voice = googleVoice;
+
+    } else if (microsoftVoice) {
+        
+        utterance.voice = microsoftVoice;
+    }
 
     voices.forEach(({ name, lang }) => {
 
