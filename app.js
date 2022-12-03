@@ -33,9 +33,11 @@ const speakText = () => {
     speechSynthesis.speak(utterance);
 };
 
+// [reproduzir a voz selecionada]
 const setVoice = event => {
 
-    console.log(event.target.value);
+    const selectedVoice = voices.find(voice => voice.name === event.target.value);
+    utterance.voice = selectedVoice;
 };
 
 // [mostrar as imagens na tela]
