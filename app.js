@@ -50,7 +50,21 @@ const addExpressionBoxesIntoDOM = () => {
 addExpressionBoxesIntoDOM()
 
 main.addEventListener('click', event => {
-    console.log(event.target)
+    
+    const clickedElement = event.target;
+
+    if (clickedElement.tagName === 'IMG' || clickedElement.tagName === 'P') {
+
+        setTextMessage(text);
+        speakText();
+
+        // [adiciona e remove a sombra ao clicar na imagem]
+        div.classList.add('active');
+
+        setTimeout(() => {
+            div.classList.remove('active')
+        }, 1000);
+    }
 });
 
 
