@@ -20,6 +20,9 @@ const humanExpressions = [
     { img: './img/grandma.jpg', text: 'Quero ver a vovó' },
 ];
 
+const utterance = new SpeechSynthesisUtterance();
+console.log(utterance);
+
 // [mostrar as imagens na tela]
 const createExpressionBox = ({ img, text }) => {
 
@@ -34,7 +37,7 @@ const createExpressionBox = ({ img, text }) => {
         speakText();
 
         div.classList('active');
-        
+
         setTimeout(() => {
             div.classList.remove('active')
         }, 1000);
