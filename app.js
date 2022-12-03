@@ -27,6 +27,11 @@ const setTextMessage = text => {
     utterance.text = text;
 };
 
+const speakText = () => {
+
+    speechSynthesis.speak(utterance);
+};
+
 // [mostrar as imagens na tela]
 const createExpressionBox = ({ img, text }) => {
 
@@ -40,7 +45,7 @@ const createExpressionBox = ({ img, text }) => {
         setTextMessage(text);
         speakText();
 
-        div.classList('active');
+        div.classList.add('active');
 
         setTimeout(() => {
             div.classList.remove('active')
