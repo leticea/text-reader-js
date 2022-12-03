@@ -4,6 +4,7 @@ const buttonReadText = document.querySelector('#read');
 const divTextBox = document.querySelector('.text-box');
 const closeDivTextBox = document.querySelector('.close');
 const selectElement = document.querySelector('select');
+const textArea = document.querySelector('textarea');
 
 const humanExpressions = [
 
@@ -100,5 +101,6 @@ selectElement.addEventListener('change', setVoice);
 
 buttonReadText.addEventListener('click', () => {
 
-    setTextMessage();
+    setTextMessage(textarea.value);
+    speakText();
 });
