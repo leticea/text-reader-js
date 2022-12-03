@@ -1,5 +1,6 @@
 const main = document.querySelector('main');
 const buttonInsertText = document.querySelector('.btn-toggle');
+const buttonReadText = document.querySelector('#read');
 const divTextBox = document.querySelector('.text-box');
 const closeDivTextBox = document.querySelector('.close');
 const selectElement = document.querySelector('select');
@@ -95,4 +96,9 @@ closeDivTextBox.addEventListener('click', () => {
 });
 
 // [mudar para a linguagem selecionada]
-selectElement.addEventListener('change', setVoice)
+selectElement.addEventListener('change', setVoice);
+
+buttonReadText.addEventListener('click', () => {
+
+    setTextMessage();
+});
