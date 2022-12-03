@@ -44,11 +44,14 @@ const setVoice = event => {
 
 const addExpressionBoxesIntoDOM = () => {
 
-    const divs = humanExpressions.map(({ img, text }) => `<div class="expression-box"><img src="${img}" alt="${text}"><p class="info">${text}</p></div>`);
-    console.log(divs)
+    main.innerHTML = humanExpressions.map(({ img, text }) => `<div class="expression-box"><img src="${img}" alt="${text}"><p class="info">${text}</p></div>`).join('');
 };
 
 addExpressionBoxesIntoDOM()
+
+main.addEventListener('click', event => {
+    console.log(event.target)
+});
 
 
 // [mostrar as imagens na tela]
