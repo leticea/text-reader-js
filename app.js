@@ -84,13 +84,15 @@ speechSynthesis.addEventListener('voiceschanged', () => {
 
         option.value = name;
 
-        if (googleVoice) {
+        if (googleVoice && option.value === googleVoice.name) {
 
             utterance.voice = googleVoice;
+            option.selected = true;
     
-        } else if (microsoftVoice) {
+        } else if (microsoftVoice && option.value === microsoftVoice) {
             
             utterance.voice = microsoftVoice;
+            option.selected = true;
         }
 
         option.textContent = `${lang} | ${name}`;
