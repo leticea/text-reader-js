@@ -49,53 +49,31 @@ const addExpressionBoxesIntoDOM = () => {
 
 addExpressionBoxesIntoDOM()
 
+// [adiciona e remove a sombra ao clicar na imagem]
+const setStyleOfClickedDiv = dataValue => {
+
+    const div = document.querySelector(`[data-js="${dataValue}"]`);
+
+    div.classList.add('active');
+
+    setTimeout(() => {
+        div.classList.remove('active')
+    }, 1000);
+};
+
 main.addEventListener('click', event => {
     
     const clickedElement = event.target;
+    const clickedElementText = clickedElement.dataset.js;
     const clickedElementTextMustBeSpoken = clickedElement.tagName === 'IMG' || clickedElement.tagName === 'P';
 
     if (clickedElementTextMustBeSpoken) {
 
-        setTextMessage(clickedElement.dataset.js);
+        setTextMessage(clickedElementText);
         speakText();
-
-        const div = document.querySelector(`[data-js="${clickedElement.dataset.js}"]`);
-
-        // [adiciona e remove a sombra ao clicar na imagem]
-        div.classList.add('active');
-
-        setTimeout(() => {
-            div.classList.remove('active')
-        }, 1000);
+        setStyleOfClickedDiv(clickedElementText);
     }
 });
-
-
-// [mostrar as imagens na tela]
-/*const createExpressionBox = ({ img, text }) => {
-
-    const div = document.createElement('div');
-
-    div.classList.add('expression-box');
-    div.innerHTML = `<img src="${img}" alt="${text}"><p class="info">${text}</p>`;
-
-    div.addEventListener('click', () => {
-
-        setTextMessage(text);
-        speakText();
-
-        // [adiciona e remove a sombra ao clicar na imagem]
-        div.classList.add('active');
-
-        setTimeout(() => {
-            div.classList.remove('active')
-        }, 1000);
-    });
-
-    main.appendChild(div);
-}
-
-humanExpressions.forEach(createExpressionBox);*/
 
 let voices = [];
 
