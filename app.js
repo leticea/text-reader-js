@@ -2,6 +2,7 @@ const main = document.querySelector('main');
 const buttonInsertText = document.querySelector('.btn-toggle');
 const divTextBox = document.querySelector('.text-box');
 const closeDivTextBox = document.querySelector('.close');
+const selectElement = document.querySelector('select');
 
 const humanExpressions = [
 
@@ -44,10 +45,9 @@ speechSynthesis.addEventListener('voiceschanged', () => {
         const option = document.createElement('option');
 
         option.value = name;
-        option.textContent = `${lang} | ${name}`;   
-
+        option.textContent = `${lang} | ${name}`;
+        selectElement.appendChild(option);
     });
-
 });
 
 // [mostrar e remover a caixa de texto]
