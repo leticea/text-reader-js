@@ -42,8 +42,14 @@ const setVoice = event => {
     utterance.voice = selectedVoice;
 };
 
+const addExpressionBoxesIntoDOM = () => {
+
+    const divs = humanExpressions.map((item, index, array) => {})
+};
+
+
 // [mostrar as imagens na tela]
-const createExpressionBox = ({ img, text }) => {
+/*const createExpressionBox = ({ img, text }) => {
 
     const div = document.createElement('div');
 
@@ -66,7 +72,7 @@ const createExpressionBox = ({ img, text }) => {
     main.appendChild(div);
 }
 
-humanExpressions.forEach(createExpressionBox);
+humanExpressions.forEach(createExpressionBox);*/
 
 let voices = [];
 
