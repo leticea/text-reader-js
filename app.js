@@ -44,9 +44,7 @@ speechSynthesis.addEventListener('voiceschanged', () => {
         const option = document.createElement('option');
 
         option.value = name;
-        option.textContent = `${lang} | ${name}`;
-        
-        console.log(option)
+        option.textContent = `${lang} | ${name}`;   
 
     });
 
