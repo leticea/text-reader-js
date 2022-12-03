@@ -32,6 +32,12 @@ const createExpressionBox = ({ img, text }) => {
 
         setTextMessage(text);
         speakText();
+
+        div.classList('active');
+        
+        setTimeout(() => {
+            div.classList.remove('active')
+        }, 1000);
     });
 
     main.appendChild(div);
