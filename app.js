@@ -21,7 +21,11 @@ const humanExpressions = [
 ];
 
 const utterance = new SpeechSynthesisUtterance();
-console.log(utterance);
+
+const setTextMessage = text => {
+
+    utterance.text = text;
+};
 
 // [mostrar as imagens na tela]
 const createExpressionBox = ({ img, text }) => {
