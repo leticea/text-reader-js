@@ -74,6 +74,8 @@ let voices = [];
 speechSynthesis.addEventListener('voiceschanged', () => {
 
     voices = speechSynthesis.getVoices();
+    const googleVoice = voices.find(voice => voice.name === 'Google português do Brasil');
+    
 
     voices.forEach(({ name, lang }) => {
 
@@ -101,6 +103,6 @@ selectElement.addEventListener('change', setVoice);
 
 buttonReadText.addEventListener('click', () => {
 
-    setTextMessage(textarea.value);
+    setTextMessage(textArea.value);
     speakText();
 });
