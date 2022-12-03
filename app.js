@@ -35,7 +35,7 @@ const speakText = () => {
 
 const setVoice = event => {
 
-    console.log('oi');
+    console.log(event.target.value);
 };
 
 // [mostrar as imagens na tela]
