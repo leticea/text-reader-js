@@ -20,6 +20,7 @@ const humanExpressions = [
     { img: './img/grandma.jpg', text: 'Quero ver a vovó' },
 ];
 
+// [reproduzir a fala do texto]
 const utterance = new SpeechSynthesisUtterance();
 
 const setTextMessage = text => {
@@ -31,6 +32,8 @@ const speakText = () => {
 
     speechSynthesis.speak(utterance);
 };
+
+
 
 // [mostrar as imagens na tela]
 const createExpressionBox = ({ img, text }) => {
@@ -45,6 +48,7 @@ const createExpressionBox = ({ img, text }) => {
         setTextMessage(text);
         speakText();
 
+        // [adiciona e remove a sombra ao clicar na imagem]
         div.classList.add('active');
 
         setTimeout(() => {
@@ -84,3 +88,6 @@ closeDivTextBox.addEventListener('click', () => {
 
     divTextBox.classList.remove('show');
 });
+
+// [mudar para a linguagem selecionada]
+selectElement.addEventListener('change', setVoice)
