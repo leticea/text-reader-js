@@ -44,7 +44,7 @@ const setVoice = event => {
 
 const addExpressionBoxesIntoDOM = () => {
 
-    main.innerHTML = humanExpressions.map(({ img, text }) => `<div class="expression-box"><img src="${img}" alt="${text}"><p class="info">${text}</p></div>`).join('');
+    main.innerHTML = humanExpressions.map(({ img, text }) => `<div class="expression-box"><img src="${img}" alt="${text}" data-js="${text}"><p class="info" data-js="${text}">${text}</p></div>`).join('');
 };
 
 addExpressionBoxesIntoDOM()
@@ -52,11 +52,14 @@ addExpressionBoxesIntoDOM()
 main.addEventListener('click', event => {
     
     const clickedElement = event.target;
+    const clickedElementTextMustBeSpoken = clickedElement.tagName === 'IMG' || clickedElement.tagName === 'P';
 
-    if (clickedElement.tagName === 'IMG' || clickedElement.tagName === 'P') {
+    if (clickedElementTextMustBeSpoken) {
 
-        setTextMessage(text);
+        setTextMessage(clickedElement.dataset.js);
         speakText();
+
+        const div = document.querySelector(`[data-js="${clickedElement.dataset.js}"]`);
 
         // [adiciona e remove a sombra ao clicar na imagem]
         div.classList.add('active');
