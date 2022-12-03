@@ -33,7 +33,10 @@ const speakText = () => {
     speechSynthesis.speak(utterance);
 };
 
+const setVoice = event => {
 
+    console.log('oi');
+};
 
 // [mostrar as imagens na tela]
 const createExpressionBox = ({ img, text }) => {
