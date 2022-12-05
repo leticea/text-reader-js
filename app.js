@@ -101,8 +101,12 @@ speechSynthesis.addEventListener('voiceschanged', () => {
     if (googleVoice) {
 
         utterance.voice = googleVoice;
+        const googleOptionElement = selectElement.querySelector(`[value="${googleVoice.name}"]`)
+        googleOptionElement.selected = true;
+
+    } else if (microsoftVoice) {
+
         
-        option.selected = true;
     }
 
 
