@@ -44,7 +44,12 @@ const setVoice = event => {
 
 const addExpressionBoxesIntoDOM = () => {
 
-    main.innerHTML = humanExpressions.map(({ img, text }) => `<div class="expression-box"><img src="${img}" alt="${text}" data-js="${text}"><p class="info" data-js="${text}">${text}</p></div>`).join('');
+    main.innerHTML = humanExpressions.map(({ img, text }) => `
+        <div class="expression-box" data-js="${text}">
+            <img src="${img}" alt="${text}" data-js="${text}">
+            <p class="info" data-js="${text}">${text}</p>
+        </div>`
+    ).join('')
 };
 
 addExpressionBoxesIntoDOM()
@@ -57,16 +62,19 @@ const setStyleOfClickedDiv = dataValue => {
     div.classList.add('active');
 
     setTimeout(() => {
+
         div.classList.remove('active')
-    }, 1000);
+    }, 1000)
 };
 
 main.addEventListener('click', event => {
     
     const clickedElement = event.target;
     const clickedElementText = clickedElement.dataset.js;
-    const clickedElementTextMustBeSpoken = ['img', 'p'].some(elementName => clickedElement.tagName.toLowerCase() === elementName.toLowerCase());
+    const clickedElementTextMustBeSpoken = ['IMG', 'P'].some(elementName => 
 
+        clickedElement.tagName.toLowerCase() === elementName.toLowerCase());
+        
     if (clickedElementTextMustBeSpoken) {
 
         setTextMessage(clickedElementText);
