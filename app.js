@@ -75,25 +75,26 @@ main.addEventListener('click', event => {
     }
 });
 
+const insertOptionElementsIntoDom = voices =>{
+
+    // [reduce - deve sempre retornar algo 
+    // e devemos especificar o valor inicial ou de partida(''); depois da primeira execução da função,
+    // esquece que esse valor('') passado nesse argumento existe]
+    selectElement.innerHTML = voices.reduce((accumulator, { name, lang }) => {
+
+        accumulator += `<option value="${name}">${lang} | ${name}</option>`
+        return accumulator
+    }, '');
+};
+
 let voices = [];
 
 // [obter as vozes]
 speechSynthesis.addEventListener('voiceschanged', () => {
 
-    voices = speechSynthesis.getVoices();
+    voices = speechSynthesis.getVoices();    
 
-    
-
-    // [reduce - deve sempre retornar algo 
-    // e devemos especificar o valor inicial ou de partida(''); depois da primeira execução da função,
-    // esquece que esse valor('') passado nesse argumento existe]
-    const optionElements = voices.reduce((accumulator, { name, lang }) => {
-
-        accumulator += `<option value="${name}">${lang} | ${name}</option>`
-        return accumulator
-    }, '');
-
-    selectElement.innerHTML = optionElements;
+    insertOptionElementsIntoDom(voices);
 
     const googleVoice = voices.find(voice => voice.name === 'Google português do Brasil');
     const microsoftVoice = voices.find(voice => voice.name === 'Microsoft Maria Desktop - Portuguese(Brazil)');
@@ -106,30 +107,10 @@ speechSynthesis.addEventListener('voiceschanged', () => {
 
     } else if (microsoftVoice) {
 
-        
-    }
-
-
-    /*voices.forEach(({ name, lang }) => {
-
-        const option = document.createElement('option');
-
-        option.value = name;
-
-        if (googleVoice && option.value === googleVoice.name) {
-
-            utterance.voice = googleVoice;
-            option.selected = true;
-    
-        } else if (microsoftVoice && option.value === microsoftVoice) {
-            
-            utterance.voice = microsoftVoice;
-            option.selected = true;
-        }
-
-        option.textContent = `${lang} | ${name}`;
-        selectElement.appendChild(option);
-    });*/
+        utterance.voice = microsoftVoice;
+        const microsoftOptionElement = selectElement.querySelector(`[value="${microsoftVoice.name}"]`)
+        microsoftOptionElement.selected = true;
+    }  
 });
 
 // [mostrar e remover a caixa de texto]
