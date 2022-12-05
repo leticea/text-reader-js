@@ -82,9 +82,7 @@ speechSynthesis.addEventListener('voiceschanged', () => {
 
     voices = speechSynthesis.getVoices();
 
-    const googleVoice = voices.find(voice => voice.name === 'Google português do Brasil');
-    const microsoftVoice = voices.find(voice => voice.name === 'Microsoft Maria Desktop - Portuguese(Brazil)');
-
+    
 
     // [reduce - deve sempre retornar algo 
     // e devemos especificar o valor inicial ou de partida(''); depois da primeira execução da função,
@@ -93,9 +91,20 @@ speechSynthesis.addEventListener('voiceschanged', () => {
 
         accumulator += `<option value="${name}">${lang} | ${name}</option>`
         return accumulator
-    }, '')
+    }, '');
 
     selectElement.innerHTML = optionElements;
+
+    const googleVoice = voices.find(voice => voice.name === 'Google português do Brasil');
+    const microsoftVoice = voices.find(voice => voice.name === 'Microsoft Maria Desktop - Portuguese(Brazil)');
+
+    if (googleVoice) {
+
+        utterance.voice = googleVoice;
+        
+        option.selected = true;
+    }
+
 
     /*voices.forEach(({ name, lang }) => {
 
