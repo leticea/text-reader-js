@@ -71,10 +71,10 @@ main.addEventListener('click', event => {
     
     const clickedElement = event.target;
     const clickedElementText = clickedElement.dataset.js;
-    const clickedElementTextMustBeSpoken = ['IMG', 'P'].some(elementName => 
+    const clickedElementTextMustBeSpoken = ['img', 'p'].some(elementName => 
 
         clickedElement.tagName.toLowerCase() === elementName.toLowerCase());
-        
+
     if (clickedElementTextMustBeSpoken) {
 
         setTextMessage(clickedElementText);
