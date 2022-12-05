@@ -89,13 +89,13 @@ speechSynthesis.addEventListener('voiceschanged', () => {
     // [reduce - deve sempre retornar algo 
     // e devemos especificar o valor inicial ou de partida(''); depois da primeira execução da função,
     // esquece que esse valor('') passado nesse argumento existe]
-    const optionElements = voices.reduce((accumulator, voice) => {
+    const optionElements = voices.reduce((accumulator, { name, lang }) => {
 
-        accumulator += `<option>${voice.name}</option>`
+        accumulator += `<option value="${name}">${lang} | ${name}</option>`
         return accumulator
     }, '')
 
-    console.log(optionElements)
+    selectElement.innerHTML = optionElements;
 
     /*voices.forEach(({ name, lang }) => {
 
