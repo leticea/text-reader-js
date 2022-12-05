@@ -85,9 +85,19 @@ speechSynthesis.addEventListener('voiceschanged', () => {
     const googleVoice = voices.find(voice => voice.name === 'Google português do Brasil');
     const microsoftVoice = voices.find(voice => voice.name === 'Microsoft Maria Desktop - Portuguese(Brazil)');
 
-    const optionElements = voices.reduce(() => {}, '')
 
-    voices.forEach(({ name, lang }) => {
+    // [reduce - deve sempre retornar algo 
+    // e devemos especificar o valor inicial ou de partida(''); depois da primeira execução da função,
+    // esquece que esse valor('') passado nesse argumento existe]
+    const optionElements = voices.reduce((accumulator, voice) => {
+
+        accumulator += `<option>${voice.name}</option>`
+        return accumulator
+    }, '')
+
+    console.log(optionElements)
+
+    /*voices.forEach(({ name, lang }) => {
 
         const option = document.createElement('option');
 
@@ -106,7 +116,7 @@ speechSynthesis.addEventListener('voiceschanged', () => {
 
         option.textContent = `${lang} | ${name}`;
         selectElement.appendChild(option);
-    });
+    });*/
 });
 
 // [mostrar e remover a caixa de texto]
