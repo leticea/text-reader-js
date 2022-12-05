@@ -85,6 +85,8 @@ speechSynthesis.addEventListener('voiceschanged', () => {
     const googleVoice = voices.find(voice => voice.name === 'Google português do Brasil');
     const microsoftVoice = voices.find(voice => voice.name === 'Microsoft Maria Desktop - Portuguese(Brazil)');
 
+    const optionElements = voices.reduce(() => {}, '')
+
     voices.forEach(({ name, lang }) => {
 
         const option = document.createElement('option');
