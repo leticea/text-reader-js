@@ -8,7 +8,7 @@
 <br>
 
 <p align="center">
-  <img alt="store" src=".github/image.png">
+  <img alt="" src=".github/image.png">
 </p>
 
 ## Text Reader
@@ -17,13 +17,13 @@
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-- [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML) 
-- [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+- [HTML5](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
+- [CSS3](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
 - [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 
 ## 💻 Projeto
 
-Como desenvolver um leitor de textos com voz com JavaScript.
+Leitor de textos com voz.
 
 Aula do canal [Roger Melo](https://www.youtube.com/watch?v=OY21UokkEYk&list=PLpSJMw6H4PFMOJHMULTxKNOEw7g1cBuyP&index=7)
 
